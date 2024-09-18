@@ -202,7 +202,7 @@ vim.keymap.set('n', '<leader>lc', function()
 end, { desc = 'Clear highlights', silent = true })
 vim.api.nvim_exec([[
   highlight LineHighlight guibg=#3C3836
-]],false)
+]],false)vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Go to Netrw' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
