@@ -156,6 +156,9 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+vim.opt.tabstop = 8
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -190,6 +193,16 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Go to Netrw' })
+
+vim.keymap.set('n', '<leader>ll', function()
+  vim.fn.matchadd('LineHighlight', '\\%' .. vim.fn.line '.' .. 'l')
+end, { desc = 'Hightline this text line', silent = true })
+vim.keymap.set('n', '<leader>lc', function()
+  vim.fn.clearmatches()
+end, { desc = 'Clear highlights', silent = true })
+vim.api.nvim_exec([[
+  highlight LineHighlight guibg=#3C3836
+]],false)
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -719,7 +732,10 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        html = { 'prettierd', 'prettier', stop_after_first = true },
+        css = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
