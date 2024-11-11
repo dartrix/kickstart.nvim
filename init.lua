@@ -644,9 +644,16 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+        astro = {
+          cmd = { 'astro-ls', '--stdio' },
+          filetypes = { 'astro' },
+          init_options = {
+            typescript = {},
+          },
+        },
         emmet_ls = {
           capabilities = capabilities,
-          filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'svelte', 'pug', 'typescriptreact', 'vue' },
+          filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'svelte', 'pug', 'typescriptreact', 'vue', 'astro' },
           init_options = {
             html = {
               options = {

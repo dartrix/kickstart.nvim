@@ -26,4 +26,6 @@ return {
       vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
     end,
   },
+  { 'diepm/vim-rest-console' },
+  { 'wuelnerdotexe/vim-astro' },
 }
