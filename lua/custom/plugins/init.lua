@@ -70,7 +70,7 @@ return {
     end,
   },
   {
-    'mgastonportillo/js-playground.nvim',
+    { 'mgastonportillo/js-playground.nvim' },
     dependencies = { 'rcarriga/nvim-notify' }, -- optional: custom notifications
     cmd = 'JSPlayground',
     init = function()
